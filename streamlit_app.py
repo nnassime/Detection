@@ -7,3 +7,9 @@ choice = st.selectbox("Select Option",[
     "Face Detection 2",
     "Face Verification"
 ])
+
+st.title("Test of Person detection")
+
+st.text("")
+
+st.text("")
