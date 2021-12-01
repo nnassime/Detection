@@ -45,6 +45,31 @@ def main():
                     ax.add_patch(dot)
             st.pyplot(fig)
             
+    elif choice == "Face Detection 2":
+        uploaded_file = st.file_uploader("Choose File", type=["jpg","png"])
+        if uploaded_file is not None:
+            column1, column2 = st.beta_columns(2)
+            image = Image.open(uploaded_file)
+            with column1:
+                size = 450, 450
+                resized_image = image.thumbnail(size)
+                image.save("thumb.png")
+                st.image("thumb.png")
+            pixels = asarray(image)
+            plt.axis("off")
+            plt.imshow(pixels)
+            detector = MTCNN()
+            results = detector.detect_faces(pixels)
+            x1, y1, width, height = results[0]["box"]
+            x2, y2 = x1 + width, y1 + height
+            face = pixels[y1:y2, x1:x2]
+            image = Image.fromarray(face)
+            image = image.resize((224, 224)) 
+            face_array = asarray(image)
+            with column2:
+                 plt.imshow(face_array)
+                 st.pyplot(fig)  
+            
             
 if __name__ == "__main__":
     head()
