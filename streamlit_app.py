@@ -15,7 +15,7 @@ def head():
     st.title("Test of Person detection")
     st.text("")
     st.text("")
-return
+    return
 
 
 def main():
