@@ -19,6 +19,12 @@ def head():
 
 
 def main():
+    choice = st.selectbox("Select Option",[
+        "Face Detection",
+        "Face Detection 2",
+        "Face Verification"
+    ])
+    
     fig = plt.figure()
     if choice == "Face Detection":
         uploaded_file = st.file_uploader("Choose File", type=["jpg","png"])
