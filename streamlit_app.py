@@ -37,7 +37,7 @@ def main():
                 for _, value in face['keypoints'].items():
                     dot = Circle(value, radius=2, color='maroon')
                     ax.add_patch(dot)
-              st.pyplot(fig)
+            st.pyplot(fig)
             
             
 if __name__ == "__main__":
